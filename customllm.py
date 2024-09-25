@@ -39,39 +39,36 @@ text_data_arr = [
 # Tokenize the text
 tokenizer = Tokenizer(char_level=True, lower=True)
 tokenizer.fit_on_texts(text_data_arr)
-
-# Convert text to sequences
-sequences = tokenizer.texts_to_sequences(text_data_arr)[0]
+vocab_size = len(tokenizer.word_index) + 1
 
 # Prepare input and target sequences
 input_sequences = []
-output_sequences = []
+for line in text_data_arr:
+    sequences = tokenizer.texts_to_sequences([line])[0]
+    for i in range(1, len(sequences)):
+        input_sequences.append(sequences[:i + 1])
 
-sequence_length = 100
-for i in range(len(sequences) - sequence_length):
-    input_sequences.append(sequences[i:i + sequence_length])
-    output_sequences.append(sequences[i + sequence_length])
-
-input_sequences = np.array(input_sequences)
-output_sequences = np.array(output_sequences)
-
-vocab_size = len(tokenizer.word_index) + 1
+max_sequence_length = max([len(x) for x in input_sequences])
+input_sequences = pad_sequences(input_sequences, maxlen=max_sequence_length, padding='pre')
 
 # Define the model architecture:
 model = Sequential([
-    Embedding(vocab_size, 32, input_length=sequence_length),
+    Embedding(vocab_size, 32, input_length=max_sequence_length-1),
     LSTM(128, return_sequences=True, dropout=0.2, recurrent_dropout=0.2),
     LSTM(128, dropout=0.2, recurrent_dropout=0.2),
     Dense(vocab_size, activation="softmax"),
 ])
 
-model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+model.compile(loss="categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
 model.summary()
+
+x, y = input_sequences[:, :-1], input_sequences[:, -1]
+y = tf.keras.utils.to_categorical(y, num_classes=vocab_size)
 
 # Train the model
 epochs = 100  # Increase the number of epochs to give the model more time to learn
 batch_size = 32
-model.fit(input_sequences, output_sequences, epochs=epochs, batch_size=batch_size)
+model.fit(x, y, epochs=epochs, batch_size=batch_size)
 
 # Evaluate the model and generate text:
 def generate_text(seed_text, model, tokenizer, sequence_length, num_chars_to_generate):
@@ -79,7 +76,7 @@ def generate_text(seed_text, model, tokenizer, sequence_length, num_chars_to_gen
 
     for _ in range(num_chars_to_generate):
         token_list = tokenizer.texts_to_sequences([generated_text])
-        token_list = pad_sequences(token_list, maxlen=sequence_length, padding="pre")
+        token_list = pad_sequences(token_list, maxlen=max_sequence_length-1, padding="pre")
         predicted_probs = model.predict(token_list, verbose=0)
         predicted_token = np.argmax(predicted_probs, axis=-1)[0]  # Get the index of the predicted token
 
