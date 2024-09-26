@@ -2,8 +2,8 @@ import numpy as np
 import tensorflow as tf
 from data import text_data_arr
 
-Tokenizer = tf.keras.preprocessing.text.Tokenizer
-pad_sequences = tf.keras.preprocessing.sequence.pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 # Tokenize the text
 tokenizer = Tokenizer(char_level=True, lower=True)
