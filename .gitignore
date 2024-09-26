@@ -1,3 +1,4 @@
 *.gguf
 env
 *.h5
+*.keras
