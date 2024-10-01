@@ -13,7 +13,7 @@ tokenizer.fit_on_texts(texts)
 model = tf.keras.models.load_model('text_classifier_model.keras')
 
 # Predict the class of a new text
-new_text = ['positive']
+new_text = ['neutral']
 new_sequences = tokenizer.texts_to_sequences(new_text)
 new_data = pad_sequences(new_sequences, maxlen=max_words, padding='pre')
 prediction = model.predict(new_data)

@@ -25,7 +25,7 @@ input_sequences = pad_sequences(input_sequences, maxlen=max_sequence_length, pad
 
 # Define the model architecture:
 model = Sequential([
-    Embedding(vocab_size, 32, input_length=max_sequence_length-1),
+    Embedding(vocab_size, 32),
     LSTM(128, return_sequences=True, dropout=0.2, recurrent_dropout=0.2),
     LSTM(128, dropout=0.2, recurrent_dropout=0.2),
     Dense(vocab_size, activation="softmax"),

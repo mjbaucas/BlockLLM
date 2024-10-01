@@ -32,7 +32,7 @@ labels = np.asarray(labels)
 
 # Build the model
 model = Sequential([
-    Embedding(max_words, 128, input_length=max_words),
+    Embedding(max_words, 128),
     LSTM(128, return_sequences=True, dropout=0.2, recurrent_dropout=0.2),
     LSTM(128, dropout=0.2, recurrent_dropout=0.2),
     Dense(num_classes, activation="softmax"),
