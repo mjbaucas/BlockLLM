@@ -1,50 +1,56 @@
 text_data_arr = [
-    '''Hi, how are you?
-    I am fine, thanks!
+    '''function Send{
+        from: user_1,
+        to: user_2,
+        allow_transaction: true
+    }
     ''',
-    '''Hi, how are you?
-    All is well.
+    '''function Send{
+        from: user_3,
+        to: user_2,
+        allow_transaction: true,
+    }
     ''',
-    '''Hi, how are you?
-    Leave me alone!
+    '''function Send{
+        from: user_3,
+        to: user_1,
+        allow_transaction: false
+    }
+    ''',    
+    '''function Send{
+        from: user_1,
+        to: user_3,
+        allow_transaction: true
+    }
     ''',
-    '''Hello!
-    Hi!
+    '''function Send{
+        from: user_2,
+        to: user_1,
+        allow_transaction: true
+    }
     ''',
-    '''Hello!
-    Greetings.
+    '''function Send{
+        from: user_2,
+        to: user_3,
+        allow_transaction: false
+    }
+    ''',    
+    '''function Send{
+        from: user_4,
+        to: user_2,
+        allow_transaction: true
+    }
     ''',
-    '''Hello?
-    Hi!
+    '''function Send{
+        from: user_4,
+        to: user_3,
+        allow_transaction: true
+    }
     ''',
-    '''Hello?
-    Greetings.
-    ''',
-    '''Hello?
-    Help me!
-    ''',
-    '''How's it going?
-    All is well.
-    ''',
-    '''How's it going?
-    Leave me alone!
-    ''',
-    '''How's it going?
-    Sup...
-    ''',
-    '''Hi!
-    Hi!
-    ''',
-    '''Hi!
-    Greetings.
-    ''',
-    '''Hi?
-    Hi!
-    ''',
-    '''Hi?
-    Greetings.
-    ''',
-    '''Hi?
-    Help me!
+    '''function Send{
+        from: user_4,
+        to: user_1,
+        allow_transaction: false
+    }
     ''',
 ]

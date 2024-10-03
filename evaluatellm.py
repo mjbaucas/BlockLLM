@@ -39,9 +39,15 @@ def generate_text(seed_text, model, tokenizer, sequence_length, num_chars_to_gen
 
         generated_text += output_word
 
+        if generated_text[-1] == "}":
+            break
+
     return generated_text
 
-seed_text = "Hello?"
+seed_text = '''function send{
+        from:user_2
+        to:user_3
+'''
 
-generated_text = generate_text(seed_text, model, tokenizer, max_sequence_length, num_chars_to_generate=20)
+generated_text = generate_text(seed_text, model, tokenizer, max_sequence_length, num_chars_to_generate=100)
 print(generated_text)

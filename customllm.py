@@ -9,7 +9,7 @@ from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.models import Sequential
 
 # Tokenize the text
-tokenizer = Tokenizer(char_level=True, lower=True)
+tokenizer = Tokenizer(char_level=True)
 tokenizer.fit_on_texts(text_data_arr)
 vocab_size = len(tokenizer.word_index) + 1
 
