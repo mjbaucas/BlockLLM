@@ -12,12 +12,10 @@ while True:
         sys.exit(1)
         
     start = time.time()
-    for chunk in llm.stream(question):
-        print(chunk, end="", flush=True) 
+    output = llm.invoke(question)
     end = time.time()
-    print("\n")
     print(end-start)
-
+    print(output)
     
 # tinyllama - 637 MB - 49.64 - 42.46 - 42.63 - 34.76 - 37.60 - 37.97 - 43.41 - 31.95 - 40.18 - 49.15
 # phi3:mini - 2.2 GB - 179.41 - 297.77 - 288.57 - 300.58 - 241.41 - 388.46 - 243.12 - 565.05 - 369.82 - 306.70
