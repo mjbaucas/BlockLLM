@@ -4,8 +4,8 @@ import sys
 from langchain_community.llms import Ollama
 
 ip_addresses = [
-    "10.12.245.206" #,
-]
+#    "10.12.245.206" #,
+#]
 #    "10.12.128.38",
 #    "10.12.212.21",
 #    "10.12.191.10",
@@ -13,9 +13,9 @@ ip_addresses = [
 #    "10.12.172.181",
 #    "10.12.208.85",
 #    "10.12.199.76",
-#    "10.12.205.161",
+    "10.12.205.161" #,
 #    "10.12.232.205"
-#]
+]
 
 llm = Ollama(
     model="hf.co/FreedomIntelligence/Apollo-6B-GGUF",

@@ -3,7 +3,10 @@ import time
 
 reset = 1
 start = 0
-while True:
+iterations = 10
+counter = 0
+#while True:
+while counter <= iterations:
 	if reset == 1:
 		start = time.time()
 		reset = 0
@@ -18,6 +21,7 @@ while True:
 			if elapsed > 1.0:
 				print(elapsed)
 			reset = 1
+			counter+=1
 		else:
 			reset = 0
 		s.close()
