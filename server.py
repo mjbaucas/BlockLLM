@@ -18,7 +18,7 @@ ip_addresses = [
 #]
 
 llm = Ollama(
-    model="tinyllama",
+    model="hf.co/FreedomIntelligence/Apollo-6B-GGUF",
 )
 
 def get_llm_response(prompt):

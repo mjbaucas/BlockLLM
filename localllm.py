@@ -11,7 +11,7 @@ llm = Ollama(
 #    if question == "stop":
 #        sys.exit(1)
  
-question = "Give me a recipe for banana bread."
+question = "Are antibiotics effective on viral infections?"
  
 times_i = []
 for i in range(0,1):

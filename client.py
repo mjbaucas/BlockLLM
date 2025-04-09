@@ -10,7 +10,7 @@ while True:
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect(("10.12.206.65", 5000))
-		s.sendall(bytes('Can you give me a recipe for banana bread?', "utf-8"))
+		s.sendall(bytes('Are antibiotics effective on viral infections?', "utf-8"))
 		message = s.recv(1024).decode("utf-8")
 		if message  != "":
 			end = time.time()
