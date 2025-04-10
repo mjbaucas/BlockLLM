@@ -1,19 +1,22 @@
+import socket
+import time
+import sys
 from blockchain.private import Chain as PrivateBlockchain
 from blockchain.public import Chain as PublicBlockchain
 
 #intialize private blockchain
 trusted_list = [
-    "10.12.205.237",
-    "10.12.195.88",
-    "10.12.172.181",
-    "10.12.232.205",
-    "10.12.213.45",
-    "10.12.243.189",
-    "10.12.208.85",
-    "10.12.131.80",
-    "10.12.191.219",
-    "10.12.141.20",
-    "default"
+    "10.12.205.237" #,
+    #"10.12.195.88",
+    #"10.12.172.181",
+    #"10.12.232.205",
+    #"10.12.213.45",
+    #"10.12.243.189",
+    #"10.12.208.85",
+    #"10.12.131.80",
+    #"10.12.191.219",
+    #"10.12.141.20",
+    #"default"
 ]
 
 priv_chain = PrivateBlockchain()
@@ -24,6 +27,8 @@ pub_chain = PublicBlockchain(3)
 
 proof = pchain.proof_of_work(pchain.gen_block)
 print(pchain.verify_proof(pchain.gen_block, proof))
+
+mode = sys.argv[1]
 
 counter = 0
 while True:

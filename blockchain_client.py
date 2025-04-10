@@ -1,8 +1,10 @@
 import socket
 import time 
+import sys
 from blockchain.public import Chain as PublicBlockchain
 
 pub_chain = PublicBlockchain(3)
+mode = sys.argv[1]
 
 while True:
 	if reset == 1:
