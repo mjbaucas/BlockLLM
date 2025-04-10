@@ -26,7 +26,7 @@ while True:
 		if message  != "":
 			end = time.time()
 			elapsed = end-start
-			if elapsed > 1.0:
+			if elapsed > 0:
 				print(elapsed)
 			reset = 1
 		else:
