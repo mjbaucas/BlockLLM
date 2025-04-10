@@ -13,13 +13,13 @@ while True:
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect(("10.12.200.169", 5000))
-        if mode == 0:
-            s.sendall(bytes('default', "utf-8"))
-            message = s.recv(1024).decode("utf-8")            
-        else:
-            proof = pchain.proof_of_work(pchain.gen_block)
-            s.sendall(bytes('default', "utf-8"))
-            message = s.recv(1024).decode("utf-8")
+		if mode == 0:
+			s.sendall(bytes('default', "utf-8"))
+			message = s.recv(1024).decode("utf-8")            
+		else:
+			proof = pchain.proof_of_work(pchain.gen_block)
+			s.sendall(bytes('default', "utf-8"))
+			message = s.recv(1024).decode("utf-8")
 		if message  != "":
 			end = time.time()
 			elapsed = end-start
