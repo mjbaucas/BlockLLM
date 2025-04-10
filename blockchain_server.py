@@ -31,7 +31,7 @@ counter = 0
 while True:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(("", 5000))
-    s.listen(10)
+    s.listen(2)
     print('Server is now running.')
     connection, address = s.accept()
     print(address)

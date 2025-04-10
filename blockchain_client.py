@@ -23,6 +23,7 @@ while True:
 			s.sendall(bytes(proof, "utf-8"))
 			message = s.recv(1024).decode("utf-8")
 		if message  != "":
+			print(message)
 			end = time.time()
 			elapsed = end-start
 			if elapsed > 1.0:
