@@ -53,8 +53,8 @@ while True:
         if counter >= len(trusted_list):
             counter = 0
     else:
-        connection.recv(1024)
-        connection.sendall(bytes("", "utf-8"))
+        connection.shutdown(socket.SHUT_RDWR)
+        connection.close()
         
     print(counter)
     connection.close()
