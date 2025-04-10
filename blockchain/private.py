@@ -28,9 +28,10 @@ class Chain:
 
 	def search_ledger(self, key):
 		for i in self.chain[::-1]:
-			if(i.validate_private_key(key)):
-				return i
-		return None
+			for j in i.transactions:
+				if j == key:
+					return True
+		return False
 		
 def gen_genesis_block():
 	transaction = ["XX:XX:XX:XX:XX"]
