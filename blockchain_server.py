@@ -6,8 +6,8 @@ from blockchain.public import Chain as PublicBlockchain
 
 #intialize private blockchain
 trusted_list = [
-    "10.12.205.237" #,
-    #"10.12.195.88",
+    "10.12.205.237",
+    "10.12.195.88",
     #"10.12.172.181",
     #"10.12.232.205",
     #"10.12.213.45",
@@ -23,7 +23,7 @@ priv_chain = PrivateBlockchain()
 priv_chain.gen_next_block("0", trusted_list)
 
 #initialize public blockchain
-pub_chain = PublicBlockchain(3)
+pub_chain = PublicBlockchain(4)
 
 mode = sys.argv[1]
 

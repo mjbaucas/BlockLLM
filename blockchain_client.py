@@ -3,7 +3,7 @@ import time
 import sys
 from blockchain.public import Chain as PublicBlockchain
 
-pub_chain = PublicBlockchain(3)
+pub_chain = PublicBlockchain(4)
 mode = sys.argv[1]
 
 reset = 1
@@ -20,7 +20,6 @@ while True:
 			message = s.recv(1024).decode("utf-8")            
 		else:
 			proof = pub_chain.proof_of_work(pub_chain.gen_block)
-			print(proof)
 			s.sendall(bytes(proof, "utf-8"))
 			message = s.recv(1024).decode("utf-8")
 		if message  != "":
