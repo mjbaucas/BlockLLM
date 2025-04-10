@@ -19,7 +19,7 @@ while True:
 			s.sendall(bytes('default', "utf-8"))
 			message = s.recv(1024).decode("utf-8")            
 		else:
-			proof = pchain.proof_of_work(pchain.gen_block)
+			proof = pub_chain.proof_of_work(pub_chain.gen_block)
 			s.sendall(bytes('default', "utf-8"))
 			message = s.recv(1024).decode("utf-8")
 		if message  != "":

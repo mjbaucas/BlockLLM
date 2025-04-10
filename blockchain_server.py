@@ -35,7 +35,7 @@ while True:
     print('Server is now running.')
     connection, address = s.accept()
     print(address)
-    if address[0] == ip_addresses[counter]:
+    if address[0] == trusted_list[counter]:
         print(f"Connection from {address} has been established.")
         message = connection.recv(1024)
         if mode == 0:
@@ -50,7 +50,7 @@ while True:
                 response = "access rejected"
         connection.sendall(bytes(response, "utf-8"))
         counter+=1
-        if counter >= len(ip_addresses):
+        if counter >= len(trusted_list):
             counter = 0
     else:
         connection.recv(1024)
