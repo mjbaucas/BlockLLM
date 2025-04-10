@@ -1,5 +1,5 @@
 import datetime
-from block import Block
+from blockchain.block import Block
 
 class Chain:
 	def __init__(self):
@@ -26,12 +26,12 @@ class Chain:
 					main_transactions.append(temp_transaction)
 		return main_transactions
 
-    def search_ledger(self, key):
-        for i in self.chain[::-1]:
-            if(i.validate_private_key(key)):
-                return i
-        return None
-
+	def search_ledger(self, key):
+		for i in self.chain[::-1]:
+			if(i.validate_private_key(key)):
+				return i
+		return None
+		
 def gen_genesis_block():
 	transaction = ["XX:XX:XX:XX:XX"]
 	return Block(0, datetime.datetime.now(), transaction, "0", "0")

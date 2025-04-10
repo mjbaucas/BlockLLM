@@ -25,9 +25,6 @@ priv_chain.gen_next_block("0", trusted_list)
 #initialize public blockchain
 pub_chain = PublicBlockchain(3)
 
-proof = pchain.proof_of_work(pchain.gen_block)
-print(pchain.verify_proof(pchain.gen_block, proof))
-
 mode = sys.argv[1]
 
 counter = 0
@@ -42,14 +39,14 @@ while True:
         print(f"Connection from {address} has been established.")
         message = connection.recv(1024)
         if mode == 0:
-            if priv_chain.search_ledger(message.decode("utf-8")) != None
+            if priv_chain.search_ledger(message.decode("utf-8")) != None:
                 response = "access granted"
-            else 
+            else:
                 response = "access rejected"
         else:
-            if pchain.verify_proof(pchain.gen_block, message.decode("utf-8"))
+            if pub_chain.verify_proof(pub_chain.gen_block, message.decode("utf-8")):
                 response = "access granted"
-            else 
+            else:
                 response = "access rejected"
         connection.sendall(bytes(response, "utf-8"))
         counter+=1
