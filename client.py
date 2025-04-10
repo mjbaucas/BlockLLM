@@ -5,8 +5,8 @@ reset = 1
 start = 0
 iterations = 10
 counter = 0
-#while True:
-while counter <= iterations:
+while True:
+#while counter <= iterations:
 	if reset == 1:
 		start = time.time()
 		reset = 0

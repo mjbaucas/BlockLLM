@@ -4,17 +4,16 @@ import sys
 from langchain_community.llms import Ollama
 
 ip_addresses = [
-#    "10.12.245.206" #,
-#]
-#    "10.12.128.38",
-#    "10.12.212.21",
-#    "10.12.191.10",
-#    "10.12.136.239",
-#    "10.12.172.181",
-#    "10.12.208.85",
-#    "10.12.199.76",
-    "10.12.205.161" #,
-#    "10.12.232.205"
+    "10.12.205.161",
+    "10.12.195.88",
+    "10.12.172.181",
+    "10.12.232.205",
+    "10.12.210.130",
+    "10.12.243.189",
+    "10.12.208.85",
+    "10.12.131.80",
+    "10.12.191.219",
+    "10.12.141.20"
 ]
 
 llm = Ollama(
@@ -30,7 +29,7 @@ counter = 0
 while True:
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.bind(("", 5000))
-    s.listen(5)
+    s.listen(10)
     print('Server is now running.')
     connection, address = s.accept()
     print(address)
