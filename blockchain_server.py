@@ -7,7 +7,7 @@ from blockchain.public import Chain as PublicBlockchain
 #intialize private blockchain
 trusted_list = [
     "10.12.205.237",
-    "10.12.195.88"
+    "10.12.195.88",
     #"10.12.172.181",
     #"10.12.232.205",
     #"10.12.213.45",
@@ -16,7 +16,7 @@ trusted_list = [
     #"10.12.131.80",
     #"10.12.191.219",
     #"10.12.141.20",
-    #"default"
+    "default"
 ]
 
 priv_chain = PrivateBlockchain()
@@ -38,12 +38,14 @@ while True:
     if address[0] == trusted_list[counter]:
         print(f"Connection from {address} has been established.")
         message = connection.recv(1024)
-        if mode == 0:
+        print(message.decode("utf-8"))
+        response =""
+        if mode == "0":
             if priv_chain.search_ledger(message.decode("utf-8")) != None:
                 response = "access granted"
             else:
                 response = "access rejected"
-        else:
+        elif mode == "1":
             if pub_chain.verify_proof(pub_chain.gen_block, message.decode("utf-8")):
                 response = "access granted"
             else:

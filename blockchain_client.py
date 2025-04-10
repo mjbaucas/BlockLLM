@@ -15,13 +15,14 @@ while True:
 		start = time.time()
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect(("10.12.200.169", 5000))
-		if mode == 0:
+		if mode == "0":
 			s.sendall(bytes('default', "utf-8"))
 			message = s.recv(1024).decode("utf-8")            
-		else:
+		elif mode == "1":
 			proof = pub_chain.proof_of_work(pub_chain.gen_block)
 			s.sendall(bytes(proof, "utf-8"))
 			message = s.recv(1024).decode("utf-8")
+			
 		if message  != "":
 			print(message)
 			end = time.time()
