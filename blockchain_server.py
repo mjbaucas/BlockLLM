@@ -6,7 +6,7 @@ from blockchain.public import Chain as PublicBlockchain
 
 ip_addresses = [
     "10.12.205.237",
-    "10.12.195.88"
+    #"10.12.195.88"
     #"10.12.172.181",
     #"10.12.232.205",
     #"10.12.213.45",
@@ -26,6 +26,8 @@ priv_chain.gen_next_block("0", trusted_list)
 
 #initialize public blockchain
 pub_chain = PublicBlockchain(4)
+proof = pub_chain.proof_of_work(pub_chain.gen_block)
+print(pub_chain.verify_proof(pub_chain.gen_block, proof))
 
 mode = sys.argv[1]
 
@@ -48,6 +50,8 @@ while True:
             else:
                 response = "access rejected"
         elif mode == "1":
+            print(proof)
+            print(message.decode("utf-8"))
             if pub_chain.verify_proof(pub_chain.gen_block, message.decode("utf-8")):
                 response = "access granted"
             else:

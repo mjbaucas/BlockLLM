@@ -41,4 +41,4 @@ class Chain:
 
 def gen_genesis_block():
     transaction = ["XX:XX:XX:XX:XX"]
-    return Block(0, datetime.datetime.now(), transaction, "0", "0")
+    return Block(0, 0, transaction, "0", "0")
