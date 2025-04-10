@@ -6,6 +6,8 @@ from blockchain.public import Chain as PublicBlockchain
 pub_chain = PublicBlockchain(3)
 mode = sys.argv[1]
 
+reset = 1
+start = 0
 while True:
 	if reset == 1:
 		start = time.time()
