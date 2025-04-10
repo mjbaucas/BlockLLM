@@ -7,7 +7,7 @@ from blockchain.public import Chain as PublicBlockchain
 #intialize private blockchain
 trusted_list = [
     "10.12.205.237",
-    "10.12.195.88",
+    "10.12.195.88"
     #"10.12.172.181",
     #"10.12.232.205",
     #"10.12.213.45",
