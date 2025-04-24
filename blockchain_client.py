@@ -14,7 +14,7 @@ while True:
 		reset = 0
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s.connect(("10.12.200.169", 5000))
+		s.connect(("10.12.204.103", 5000))
 		if mode == "0":
 			s.sendall(bytes('default', "utf-8"))
 			message = s.recv(1024).decode("utf-8")            
