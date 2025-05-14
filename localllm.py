@@ -14,8 +14,8 @@ models = [
 ]
 
 questions = [
-    "Define BMI and explain how it is calculated.",
-    "Explain drip irrigation and why it is used in modern agriculture.",
+    "Define BMI and explain how to calculate it.",
+    "Explain drip irrigation and why farmers use it in modern agriculture.",
     "What is cruise control, and how does it help during long trips?"
 ] 
 
@@ -36,7 +36,7 @@ for k in range(0, len(models)):
             elapsed = end-start
             times_j.append(elapsed)
             print(elapsed)
-            print(output)
+            #print(output)
         
         sum_time_j = 0.0
         for time_j in times_j:
