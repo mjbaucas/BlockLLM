@@ -5,17 +5,22 @@ from blockchain.private import Chain as PrivateBlockchain
 from blockchain.public import Chain as PublicBlockchain
 
 ip_addresses = [
-    "10.12.141.20",
-    "10.12.131.80",
-    "10.12.205.237",
-    "10.12.213.45",
-    "10.12.195.88",
-    "10.12.172.181",
-    "10.12.232.205",
-    "10.12.243.189",
-    #"10.12.208.85",
+    "10.12.208.45",
+    #"10.12.215.195",
+    
+    #"10.12.232.205",
+    #"10.12.172.181",
+    
+    #"10.12.240.116",
+    #"10.12.195.88",
+    
+    #"10.12.129.251",
     #"10.12.191.219",
+
+    #"10.12.141.20",
+    #"10.12.207.51"
 ]
+    
 
 #intialize private blockchain
 trusted_list = ip_addresses.copy()
