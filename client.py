@@ -12,7 +12,7 @@ while True:
 		reset = 0
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s.connect(("10.12.200.1", 5000))
+		s.connect(("10.12.202.68", 5000))
 		s.sendall(bytes('What is cruise control, and how does it help during long trips?', "utf-8"))
 		message = s.recv(1024).decode("utf-8")
 		if message  != "":
