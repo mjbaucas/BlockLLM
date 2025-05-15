@@ -13,7 +13,7 @@ while True:
 	try:
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect(("10.12.202.68", 5000))
-		s.sendall(bytes('Define BMI and explain how to calculate it.', "utf-8"))
+		s.sendall(bytes('Explain drip irrigation and why farmers use it in modern agriculture.', "utf-8"))
 		message = s.recv(1024).decode("utf-8")
 		if message  != "":
 			end = time.time()

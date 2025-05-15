@@ -17,7 +17,7 @@ ip_addresses = [
 ]
 
 llm = Ollama(
-    model="granite3.2:2b",
+    model="llama3.2:1b",
 )
 
 def get_llm_response(prompt):
